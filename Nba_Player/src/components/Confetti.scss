@@ -1,0 +1,51 @@
+.confetti {
+  position: fixed;
+  top: 0;
+  width: 40vw;
+  height: 0;
+  pointer-events: none;
+  z-index: 99;
+}
+.confetti-left { left: 0; }
+.confetti-right { right: 0; }
+.confetti-piece {
+  position: absolute;
+  top: 0;
+  width: 12px;
+  height: 18px;
+  border-radius: 3px;
+  opacity: 0.85;
+  animation: confetti-fall 2.2s cubic-bezier(.5,1.5,.7,1) forwards;
+  /* 方向和角度随机 */
+  --confetti-angle: 0deg;
+  --confetti-side: left;
+}
+@keyframes confetti-fall {
+  0% {
+    opacity: 0.9;
+    transform:
+      translateY(0)
+      translateX(0)
+      scale(1)
+      rotate(0deg)
+      rotate(var(--confetti-angle));
+  }
+  60% {
+    opacity: 1;
+    transform:
+      translateY(40vh)
+      translateX(var(--confetti-x))
+      scale(1.08)
+      rotate(120deg)
+      rotate(var(--confetti-angle));
+  }
+  100% {
+    opacity: 0;
+    transform:
+      translateY(70vh)
+      translateX(var(--confetti-x))
+      scale(0.7)
+      rotate(180deg)
+      rotate(var(--confetti-angle));
+  }
+} 
