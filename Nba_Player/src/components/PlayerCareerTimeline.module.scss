@@ -1,0 +1,11 @@
+.timeline { position: relative; margin: 24px 0; }
+.event { display: flex; align-items: flex-start; position: relative; }
+.dot { width: 16px; height: 16px; border-radius: 50%; margin-right: 12px; margin-top: 4px; }
+.info { flex: 1; }
+.year { font-weight: bold; }
+.team { color: #1976d2; }
+.desc { color: #555; }
+.line {
+  position: absolute; left: 7px; top: 20px; width: 2px; height: 40px;
+  background: #bdbdbd;
+} 

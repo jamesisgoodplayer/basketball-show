@@ -1,0 +1,34 @@
+@use './variables.scss' as *;
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: $color-bg;
+  color: $color-text;
+  font-family: 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+  transition: color 0.2s;
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+// 响应式字体
+body {
+  font-size: 16px;
+  @media (max-width: $breakpoint-sm) {
+    font-size: 15px;
+  }
+  @media (max-width: $breakpoint-xs) {
+    font-size: 14px;
+  }
+} 

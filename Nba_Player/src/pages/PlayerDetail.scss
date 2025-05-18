@@ -1,0 +1,263 @@
+.player-detail-page {
+  min-height: 100vh;
+  /* 多层渐变+球场线条+光斑 */
+  background:
+    radial-gradient(circle at 80% 20%, #fcb51433 0%, transparent 60%),
+    radial-gradient(circle at 20% 80%, #e03a3e22 0%, transparent 70%),
+    repeating-linear-gradient(
+      120deg,
+      #23305a22 0 2px,
+      transparent 2px 40px
+    ),
+    linear-gradient(135deg, #181c2a 0%, #23305a 60%, #0e1a2b 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.player-detail-page::before {
+  /* 球场线条装饰 */
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 80vw;
+  height: 100vh;
+  transform: translateX(-50%);
+  background:
+    linear-gradient(90deg, transparent 47%, #fcb51455 48%, #fcb51455 52%, transparent 53%),
+    linear-gradient(0deg, transparent 85%, #e03a3e33 86%, #e03a3e33 90%, transparent 91%);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.18;
+}
+
+.player-detail-page::after {
+  /* NBA logo淡化大水印 */
+  content: "";
+  position: absolute;
+  right: 4vw;
+  bottom: 2vw;
+  width: 180px;
+  height: 180px;
+  background: url('/nba_logo.png') no-repeat center/contain;
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.player-detail-content-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100vw;
+  min-height: 80vh;
+}
+.player-detail-card {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 4px 32px #17408b22, 0 1.5px 0 #fcb51433;
+  border: 1.5px solid #e3eafc;
+  padding: 2.5rem 2rem 2rem 2rem;
+  max-width: 700px;
+  width: 60vw;
+  margin: 40px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+.player-detail-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 2px 16px #17408b33;
+  background: #eee;
+  border: 4px solid #fcb51444;
+}
+.player-detail-info {
+  width: 100%;
+  text-align: center;
+}
+.player-detail-name {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #17408b;
+  margin-bottom: 0.6em;
+}
+.player-detail-basic {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7em 1.2em;
+  justify-content: center;
+  font-size: 1.08rem;
+  margin-bottom: 1.2em;
+  color: #222;
+}
+.player-detail-section {
+  background: #f5f6fa;
+  border-radius: 14px;
+  margin-bottom: 1.1em;
+  padding: 1em 1.2em;
+  text-align: left;
+  box-shadow: 0 2px 8px #17408b11;
+}
+.player-detail-section h3 {
+  margin: 0 0 0.5em 0;
+  font-size: 1.1rem;
+  color: #17408b;
+}
+.player-detail-quote {
+  font-style: italic;
+  color: #e03a3e;
+  font-size: 1.08rem;
+  margin-top: 0.5em;
+  text-align: center;
+}
+.back-btn {
+  position: fixed;
+  top: 24px;
+  left: 32px;
+  z-index: 30;
+  background: #fff;
+  color: #17408b;
+  border: 1.5px solid #17408b;
+  border-radius: 24px;
+  padding: 0.5em 1.4em;
+  font-size: 1.08rem;
+  font-weight: bold;
+  box-shadow: 0 2px 12px #17408b11;
+  cursor: pointer;
+  transition: all 0.18s;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+.back-btn:hover {
+  background: #17408b;
+  color: #fff;
+  border-color: #e03a3e;
+}
+@media (max-width: 1200px) {
+  .player-detail-card {
+    width: 80vw;
+    max-width: 96vw;
+    padding: 1.5rem 0.5rem 1.5rem 0.5rem;
+  }
+}
+@media (max-width: 900px) {
+  .player-detail-card {
+    width: 96vw;
+    max-width: 99vw;
+    padding: 1.2rem 0.2rem 1.2rem 0.2rem;
+    border-radius: 0.8em;
+  }
+  .back-btn {
+    top: 8px;
+    left: 4px;
+    padding: 0.4em 1em;
+    font-size: 0.98rem;
+  }
+}
+.section-title-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 0.3em;
+}
+.section-icon {
+  width: 1.6em;
+  height: 1.6em;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.player-detail-anim {
+  position: fixed;
+  top: 100px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5em;
+  pointer-events: none;
+  opacity: 0.85;
+}
+.player-detail-anim-left {
+  left: 2vw;
+  align-items: flex-start;
+}
+.player-detail-anim-right {
+  right: 2vw;
+  align-items: flex-end;
+}
+.anim-item {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 0.5em;
+  animation: floatY 3.5s ease-in-out infinite alternate;
+}
+.anim-item:nth-child(2) { animation-delay: 1.2s; }
+.anim-item:nth-child(3) { animation-delay: 2.1s; }
+@keyframes floatY {
+  0% { transform: translateY(0);}
+  100% { transform: translateY(24px);}
+}
+@media (max-width: 900px) {
+  .player-detail-anim { display: none; }
+}
+
+.player-detail-honor {
+  background: linear-gradient(100deg, #fcb51422 0%, #e3eafc 100%);
+  border-left: 5px solid #fcb514;
+  border-radius: 12px;
+  padding: 1.2em 1.4em 1.2em 2.2em;
+  margin: 0.8em 0 1.2em 0;
+  font-size: 1.13rem;
+  color: #17408b;
+  font-weight: 500;
+  position: relative;
+  box-shadow: 0 2px 12px #fcb51422;
+  line-height: 1.8;
+}
+.player-detail-honor::before {
+  content: '“';
+  position: absolute;
+  left: 0.7em;
+  top: 0.2em;
+  font-size: 2.2em;
+  color: #e03a3e;
+  opacity: 0.18;
+  font-family: serif;
+}
+.player-detail-honor::after {
+  content: '”';
+  position: absolute;
+  right: 0.7em;
+  bottom: 0.2em;
+  font-size: 2.2em;
+  color: #e03a3e;
+  opacity: 0.18;
+  font-family: serif;
+}
+.player-detail-honor-icon {
+  position: absolute;
+  left: -2.2em;
+  top: 1.1em;
+  width: 2em;
+  height: 2em;
+  background: linear-gradient(135deg, #fcb514 60%, #e03a3e 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px #fcb51433;
+  z-index: 2;
+} 
